@@ -375,6 +375,14 @@
     </style>
 </head>
 <body>
+    <div id="gate" style="position:fixed;inset:0;background:#0d0d0d;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
+        <p style="color:#8a8580;font-family:JetBrains Mono,monospace;font-size:0.8rem;">enter passkey</p>
+        <input type="password" id="pw" style="background:#1a1a1a;border:1px solid #2d2d2d;color:#e8e4e0;padding:0.75rem 1rem;border-radius:4px;font-family:JetBrains Mono,monospace;font-size:1rem;width:200px;text-align:center;" onkeydown="if(event.key==='Enter')check()">
+        <button onclick="check()" style="background:#242424;border:1px solid #2d2d2d;color:#e8e4e0;padding:0.5rem 1.5rem;border-radius:4px;font-family:JetBrains Mono,monospace;font-size:0.75rem;cursor:pointer;">unlock</button>
+        <p id="err" style="color:#c44;font-family:JetBrains Mono,monospace;font-size:0.7rem;display:none;">wrong</p>
+    </div>
+    <script>const p='mercurius';function check(){document.getElementById('pw').value===p?(document.getElementById('gate').style.display='none',document.getElementById('pw').value=''):(document.getElementById('err').style.display='block',document.getElementById('pw').value='')}</script>
+    
     <div class="header">
         <h1>Philosophy Flowchart</h1>
         <p>Y-axis = time, X-axis = overlap. Tap to expand.</p>
